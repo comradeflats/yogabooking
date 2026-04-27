@@ -7,8 +7,9 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: "Geist", "Geist Fallback", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono", "Geist Mono Fallback", ui-monospace, monospace;
+  --font-display: "DM Serif Display", "Playfair Display", serif;
   --font-heading: var(--font-sans);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
@@ -49,30 +50,31 @@
 }
 
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
+  /* Element Studio-Inspired Color Palette - Light Mode */
+  --background: oklch(0.98 0.01 75);        /* Off-white/Cream background */
+  --foreground: oklch(0.20 0.02 30);        /* Dark charcoal text */
+  --card: oklch(0.99 0.005 75);             /* Card background (slightly off-white) */
+  --card-foreground: oklch(0.20 0.02 30);   /* Card text */
+  --popover: oklch(0.99 0.005 75);
+  --popover-foreground: oklch(0.20 0.02 30);
+  --primary: oklch(0.55 0.15 25);           /* Terracotta/Rust #C64528 */
+  --primary-foreground: oklch(0.98 0 0);    /* White text on primary */
+  --secondary: oklch(0.92 0.02 75);         /* Warm Cream #F2F1ED */
+  --secondary-foreground: oklch(0.25 0.02 30); /* Dark text on cream */
+  --muted: oklch(0.85 0.02 75);             /* Muted cream */
+  --muted-foreground: oklch(0.45 0.02 30);  /* Muted text */
+  --accent: oklch(0.35 0.03 30);            /* Charcoal #2C2B22 */
+  --accent-foreground: oklch(0.95 0 0);     /* Light text on charcoal */
   --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --radius: 0.625rem;
+  --border: oklch(0.80 0.02 75);            /* Border color */
+  --input: oklch(0.80 0.02 75);             /* Input border */
+  --ring: oklch(0.55 0.15 25);              /* Focus ring (terracotta) */
+  --chart-1: oklch(0.55 0.15 25);
+  --chart-2: oklch(0.92 0.02 75);
+  --chart-3: oklch(0.35 0.03 30);
+  --chart-4: oklch(0.87 0 0);
+  --chart-5: oklch(0.556 0 0);
+  --radius: 0.5rem;                         /* Slightly sharper corners */
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
   --sidebar-primary: oklch(0.205 0 0);
@@ -84,37 +86,37 @@
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
+  --background: oklch(0.15 0.02 30);        /* Dark charcoal */
+  --foreground: oklch(0.92 0.02 75);        /* Cream text */
+  --card: oklch(0.18 0.02 30);
+  --card-foreground: oklch(0.92 0.02 75);
+  --popover: oklch(0.18 0.02 30);
+  --popover-foreground: oklch(0.92 0.02 75);
+  --primary: oklch(0.60 0.15 25);           /* Lighter terracotta */
+  --primary-foreground: oklch(0.98 0 0);
+  --secondary: oklch(0.25 0.02 30);         /* Dark cream */
+  --secondary-foreground: oklch(0.92 0.02 75);
+  --muted: oklch(0.25 0.02 30);
+  --muted-foreground: oklch(0.65 0.02 75);
+  --accent: oklch(0.85 0.02 75);            /* Light cream accent */
+  --accent-foreground: oklch(0.20 0.02 30);
   --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
+  --border: oklch(0.30 0.02 30);
+  --input: oklch(0.30 0.02 30);
+  --ring: oklch(0.60 0.15 25);
+  --chart-1: oklch(0.60 0.15 25);
+  --chart-2: oklch(0.85 0.02 75);
   --chart-3: oklch(0.439 0 0);
   --chart-4: oklch(0.371 0 0);
   --chart-5: oklch(0.269 0 0);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --sidebar: oklch(0.18 0.02 30);
+  --sidebar-foreground: oklch(0.92 0.02 75);
+  --sidebar-primary: oklch(0.60 0.15 25);
+  --sidebar-primary-foreground: oklch(0.98 0 0);
+  --sidebar-accent: oklch(0.25 0.02 30);
+  --sidebar-accent-foreground: oklch(0.92 0.02 75);
+  --sidebar-border: oklch(0.30 0.02 30);
+  --sidebar-ring: oklch(0.60 0.15 25);
 }
 
 @layer base {
@@ -126,5 +128,54 @@
   }
   html {
     @apply font-sans;
+    scroll-behavior: smooth;
+    scroll-padding-top: 4rem; /* Account for sticky header */
+  }
+
+  /* Typography - Headers use display font */
+  h1, h2, h3 {
+    font-family: var(--font-display, var(--font-sans));
+    font-weight: 400;
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer utilities {
+  /* Generous section padding */
+  .section-padding {
+    padding: 5rem 0; /* 80px vertical */
+  }
+
+  @media (max-width: 768px) {
+    .section-padding {
+      padding: 3rem 0; /* 48px on mobile */
+    }
+  }
+}
+
+/* Russian language-specific adjustments */
+[lang="ru"] {
+  /* DM Serif Display fallback for Russian (doesn't support Cyrillic) */
+  h1, h2, h3 {
+    font-family: "PT Serif", Georgia, serif;
+    letter-spacing: 0; /* Reset negative letter-spacing for better Cyrillic readability */
+  }
+
+  /* Increase max-widths for Cyrillic (10-15% wider) */
+  .max-w-2xl {
+    max-width: 44rem; /* Was 42rem */
+  }
+
+  .max-w-4xl {
+    max-width: 60rem; /* Was 56rem */
+  }
+
+  .max-w-3xl {
+    max-width: 52rem; /* Was 48rem */
+  }
+
+  /* Prevent button overflow */
+  button {
+    white-space: nowrap;
   }
 }

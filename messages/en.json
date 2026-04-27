@@ -1,0 +1,252 @@
+{
+  "common": {
+    "loading": "Loading...",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "close": "Close",
+    "back": "Back",
+    "next": "Next",
+    "submit": "Submit",
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort",
+    "actions": "Actions",
+    "minutes": "min",
+    "minutes_plural": "{count, plural, one {# minute} other {# minutes}}"
+  },
+  "layout": {
+    "header": {
+      "title": "Yoga with Polina",
+      "nav": {
+        "home": "Home",
+        "classes": "Classes",
+        "about": "About",
+        "bookClass": "Book a Class"
+      },
+      "menuToggle": "Toggle menu"
+    },
+    "footer": {
+      "copyright": "© 2025 Yoga with Polina. All rights reserved.",
+      "contact": "Contact",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service"
+    }
+  },
+  "landing": {
+    "hero": {
+      "title": "Find Your Flow with Polina",
+      "subtitle": "Personalized yoga sessions designed to meet you where you are",
+      "cta": "Book Your Class"
+    },
+    "classes": {
+      "title": "Explore Our Classes",
+      "subtitle": "From gentle stretching to dynamic flows, find the practice that resonates with you"
+    },
+    "about": {
+      "title": "About Polina",
+      "content": "With over 10 years of experience, Polina brings a compassionate and personalized approach to every session."
+    }
+  },
+  "booking": {
+    "title": "Book Your Session",
+    "subtitle": "Choose from available classes or request a custom time",
+    "type": {
+      "title": "Booking Type",
+      "description": "Choose to book a scheduled class or request a custom time",
+      "fixed": "Scheduled Class",
+      "fixedDescription": "Book from available time slots",
+      "custom": "Custom Time",
+      "customDescription": "Request a personalized time"
+    },
+    "timeSlot": {
+      "title": "Select a Class",
+      "description": "Choose from our available upcoming classes",
+      "noSlots": "No available time slots at the moment. Please check back later or request a custom time.",
+      "spotsAvailable": "{count, plural, one {# spot available} other {# spots available}}",
+      "fullyBooked": "Fully Booked"
+    },
+    "customTime": {
+      "title": "Request Custom Time",
+      "description": "Tell us when you'd like to book a session",
+      "date": "Preferred Date",
+      "time": "Preferred Time",
+      "datePlaceholder": "Select a date",
+      "timePlaceholder": "Enter time (e.g., 10:00 AM)"
+    },
+    "contact": {
+      "title": "Contact Information",
+      "description": "How can we reach you to confirm your booking?",
+      "name": "Full Name",
+      "namePlaceholder": "John Doe",
+      "email": "Email",
+      "emailPlaceholder": "john@example.com",
+      "phone": "Phone Number",
+      "phonePlaceholder": "+1 (555) 123-4567",
+      "instagram": "Instagram Handle",
+      "instagramPlaceholder": "@yourusername",
+      "telegram": "Telegram Handle",
+      "telegramPlaceholder": "@yourusername",
+      "notes": "Additional Notes",
+      "notesPlaceholder": "Any special requests or information we should know?"
+    },
+    "submit": {
+      "submitting": "Creating Booking...",
+      "confirm": "Confirm Booking",
+      "success": "Booking created successfully!",
+      "error": "Failed to create booking. Please try again."
+    },
+    "success": {
+      "title": "Booking Confirmed!",
+      "message": "Thank you for booking with Yoga with Polina. You'll receive a confirmation email shortly.",
+      "returnHome": "Return to Home"
+    },
+    "validation": {
+      "required": "This field is required",
+      "invalidEmail": "Please enter a valid email address",
+      "invalidPhone": "Please enter a valid phone number",
+      "selectTimeSlot": "Please select a time slot",
+      "selectDate": "Please select a date",
+      "selectTime": "Please enter a time"
+    }
+  },
+  "admin": {
+    "nav": {
+      "dashboard": "Dashboard",
+      "bookings": "Bookings",
+      "timeSlots": "Time Slots",
+      "classTypes": "Class Types",
+      "logout": "Logout"
+    },
+    "login": {
+      "title": "Admin Login",
+      "username": "Username",
+      "password": "Password",
+      "submit": "Sign In",
+      "error": "Invalid credentials"
+    },
+    "dashboard": {
+      "title": "Dashboard",
+      "welcome": "Welcome back!",
+      "stats": {
+        "totalBookings": "Total Bookings",
+        "pendingBookings": "Pending",
+        "confirmedBookings": "Confirmed",
+        "upcomingClasses": "Upcoming Classes"
+      }
+    },
+    "bookings": {
+      "title": "Manage Bookings",
+      "table": {
+        "name": "Name",
+        "email": "Email",
+        "phone": "Phone",
+        "type": "Type",
+        "status": "Status",
+        "date": "Date",
+        "time": "Time",
+        "actions": "Actions"
+      },
+      "status": {
+        "pending": "Pending",
+        "confirmed": "Confirmed",
+        "cancelled": "Cancelled"
+      },
+      "type": {
+        "fixed": "Scheduled",
+        "custom": "Custom Request"
+      },
+      "actions": {
+        "confirm": "Confirm",
+        "cancel": "Cancel",
+        "delete": "Delete"
+      },
+      "confirmDelete": "Are you sure you want to delete this booking?",
+      "updateSuccess": "Booking updated successfully",
+      "updateError": "Failed to update booking",
+      "deleteSuccess": "Booking deleted successfully",
+      "deleteError": "Failed to delete booking"
+    },
+    "timeSlots": {
+      "title": "Manage Time Slots",
+      "add": "Add Time Slot",
+      "edit": "Edit Time Slot",
+      "table": {
+        "classType": "Class Type",
+        "date": "Date",
+        "time": "Time",
+        "capacity": "Capacity",
+        "booked": "Booked",
+        "status": "Status"
+      },
+      "form": {
+        "classType": "Class Type",
+        "date": "Date",
+        "startTime": "Start Time",
+        "capacity": "Maximum Capacity"
+      },
+      "createSuccess": "Time slot created successfully",
+      "createError": "Failed to create time slot",
+      "updateSuccess": "Time slot updated successfully",
+      "updateError": "Failed to update time slot",
+      "deleteSuccess": "Time slot deleted successfully",
+      "deleteError": "Failed to delete time slot"
+    },
+    "classTypes": {
+      "title": "Manage Class Types",
+      "add": "Add Class Type",
+      "edit": "Edit Class Type",
+      "table": {
+        "name": "Name",
+        "description": "Description",
+        "duration": "Duration",
+        "color": "Color"
+      },
+      "form": {
+        "name": "Class Name",
+        "description": "Description",
+        "duration": "Duration (minutes)",
+        "color": "Color"
+      },
+      "createSuccess": "Class type created successfully",
+      "createError": "Failed to create class type",
+      "updateSuccess": "Class type updated successfully",
+      "updateError": "Failed to update class type",
+      "deleteSuccess": "Class type deleted successfully",
+      "deleteError": "Failed to delete class type"
+    }
+  },
+  "emails": {
+    "bookingConfirmation": {
+      "subject": "Booking Confirmation - Yoga with Polina",
+      "greeting": "Hi {name},",
+      "confirmed": "Your booking has been confirmed!",
+      "details": "Booking Details",
+      "classType": "Class Type",
+      "date": "Date",
+      "time": "Time",
+      "duration": "Duration",
+      "location": "Location",
+      "customRequest": "Custom Time Request",
+      "requestedDate": "Requested Date",
+      "requestedTime": "Requested Time",
+      "note": "We'll contact you soon to confirm the exact time.",
+      "questions": "If you have any questions, feel free to reach out.",
+      "thanks": "See you on the mat!",
+      "signature": "Namaste,\nPolina"
+    },
+    "customRequestReceived": {
+      "subject": "Custom Booking Request Received - Yoga with Polina",
+      "greeting": "Hi {name},",
+      "received": "We've received your custom booking request!",
+      "details": "Request Details",
+      "requestedDate": "Requested Date",
+      "requestedTime": "Requested Time",
+      "review": "We'll review your request and contact you within 24 hours to confirm availability.",
+      "thanks": "Thank you for your interest!",
+      "signature": "Namaste,\nPolina"
+    }
+  }
+}
