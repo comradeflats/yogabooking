@@ -10,15 +10,17 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import { localeNames } from '@/i18n/config';
+import { localeNames, type Locale } from '@/i18n/config';
 
 export function LanguageSwitcher() {
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
 
-  const handleLocaleChange = (newLocale: string) => {
-    router.replace(pathname, { locale: newLocale });
+  const handleLocaleChange = (newLocale: string | null) => {
+    if (newLocale) {
+      router.replace(pathname, { locale: newLocale as Locale });
+    }
   };
 
   return (

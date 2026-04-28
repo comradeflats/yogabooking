@@ -38,7 +38,7 @@ export default function BookingConfirmation({
           <Text style={text}>Hi {booking.name},</Text>
 
           <Text style={text}>
-            Your yoga class booking has been confirmed. We're excited to see you
+            Your yoga class booking has been confirmed. We&apos;re excited to see you
             on the mat!
           </Text>
 
@@ -103,7 +103,7 @@ export default function BookingConfirmation({
               <br />
               • If you need to cancel, please let us know at least 24 hours in
               advance
-              <br />• We'll send you a reminder 24 hours before your class
+              <br />• We&apos;ll send you a reminder 24 hours before your class
             </Text>
           </Section>
 

@@ -23,14 +23,14 @@ export function AboutSection() {
             <div className="space-y-4 text-muted-foreground text-lg">
               <p>
                 Welcome to my practice. My yoga journey began over a decade ago, and since then,
-                I've dedicated myself to creating spaces where students feel safe to explore,
+                I&apos;ve dedicated myself to creating spaces where students feel safe to explore,
                 challenge themselves, and grow.
               </p>
               <p>
                 I believe that yoga is not one-size-fits-all. Each body is unique, each day brings
                 different energy, and every practice should honor where you are in the moment.
-                Whether you're seeking flexibility, strength, stress relief, or simply a moment
-                of peace, we'll craft a practice that serves you.
+                Whether you&apos;re seeking flexibility, strength, stress relief, or simply a moment
+                of peace, we&apos;ll craft a practice that serves you.
               </p>
               <p>
                 My teaching style blends traditional yoga philosophy with modern movement science,

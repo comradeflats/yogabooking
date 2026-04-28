@@ -165,16 +165,16 @@ async function SuccessContent({ searchParams }: { searchParams: Promise<{ id?: s
 
         <Card className="mb-6">
           <CardHeader>
-            <CardTitle>What's Next?</CardTitle>
+            <CardTitle>What&apos;s Next?</CardTitle>
           </CardHeader>
           <CardContent className="space-y-3">
             {isFixedBooking ? (
               <>
                 <p className="text-sm">
-                  ✅ You'll receive a confirmation email at <strong>{booking.email}</strong>
+                  ✅ You&apos;ll receive a confirmation email at <strong>{booking.email}</strong>
                 </p>
                 <p className="text-sm">
-                  📧 We'll send you a reminder 24 hours before your class
+                  📧 We&apos;ll send you a reminder 24 hours before your class
                 </p>
                 <p className="text-sm">
                   🧘‍♀️ Please arrive 10 minutes early for your first class
@@ -186,10 +186,10 @@ async function SuccessContent({ searchParams }: { searchParams: Promise<{ id?: s
             ) : (
               <>
                 <p className="text-sm">
-                  ✅ We've received your custom time request
+                  ✅ We&apos;ve received your custom time request
                 </p>
                 <p className="text-sm">
-                  📧 We'll review your request and get back to you within 24 hours at <strong>{booking.email}</strong>
+                  📧 We&apos;ll review your request and get back to you within 24 hours at <strong>{booking.email}</strong>
                 </p>
                 <p className="text-sm">
                   🙏 Thank you for your patience while we check our availability
