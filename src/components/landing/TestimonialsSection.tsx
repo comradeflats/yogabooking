@@ -1,27 +1,30 @@
 import { Card, CardContent } from "@/components/ui/card";
+import { getTranslations } from 'next-intl/server';
 
-const testimonials = [
-  {
-    quote: "Polina's classes have completely transformed my practice. Her personalized approach helps me feel seen and supported.",
-    author: "Sarah M.",
-  },
-  {
-    quote: "I've tried many instructors, but Polina's attention to alignment and breathwork is unmatched.",
-    author: "James K.",
-  },
-  {
-    quote: "As a beginner, I was nervous, but Polina created such a welcoming space. I'm hooked!",
-    author: "Maria L.",
-  },
-];
+export async function TestimonialsSection() {
+  const t = await getTranslations('landing.testimonials');
 
-export function TestimonialsSection() {
+  const testimonials = [
+    {
+      quote: t('quote1'),
+      author: t('author1'),
+    },
+    {
+      quote: t('quote2'),
+      author: t('author2'),
+    },
+    {
+      quote: t('quote3'),
+      author: t('author3'),
+    },
+  ];
+
   return (
     <section className="section-padding bg-muted">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-display mb-4">
-            What Students Say
+            {t('title')}
           </h2>
         </div>
 
@@ -30,7 +33,7 @@ export function TestimonialsSection() {
             <Card key={i} className="border-2">
               <CardContent className="p-6">
                 <p className="text-muted-foreground mb-4 italic text-lg">
-                  "{testimonial.quote}"
+                  &quot;{testimonial.quote}&quot;
                 </p>
                 <p className="font-semibold">— {testimonial.author}</p>
               </CardContent>

@@ -1,24 +1,23 @@
 "use client";
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { Link, usePathname } from "@/i18n/routing";
 import { cn } from "@/lib/utils";
 import { LayoutDashboard, Calendar, Users, Palette, LogOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const navigation = [
-  { name: "Dashboard", href: "/admin", icon: LayoutDashboard },
-  { name: "Bookings", href: "/admin/bookings", icon: Users },
-  { name: "Time Slots", href: "/admin/time-slots", icon: Calendar },
-  { name: "Class Types", href: "/admin/class-types", icon: Palette },
+  { name: "Dashboard", href: "/booking-portal", icon: LayoutDashboard },
+  { name: "Bookings", href: "/booking-portal/bookings", icon: Users },
+  { name: "Time Slots", href: "/booking-portal/time-slots", icon: Calendar },
+  { name: "Class Types", href: "/booking-portal/class-types", icon: Palette },
 ];
 
 export function Sidebar() {
   const pathname = usePathname();
 
   const handleLogout = async () => {
-    await fetch("/api/admin/logout", { method: "POST" });
-    window.location.href = "/admin/login";
+    await fetch("/api/booking-portal/logout", { method: "POST" });
+    window.location.href = "/booking-portal/login";
   };
 
   return (
@@ -29,7 +28,7 @@ export function Sidebar() {
 
       <nav className="flex-1 p-4 space-y-2">
         {navigation.map((item) => {
-          const isActive = pathname === item.href || (item.href !== "/admin" && pathname.startsWith(item.href));
+          const isActive = pathname === item.href || (item.href !== "/booking-portal" && pathname.startsWith(item.href));
           const Icon = item.icon;
 
           return (

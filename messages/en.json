@@ -46,8 +46,28 @@
       "subtitle": "From gentle stretching to dynamic flows, find the practice that resonates with you"
     },
     "about": {
-      "title": "About Polina",
-      "content": "With over 10 years of experience, Polina brings a compassionate and personalized approach to every session."
+      "title": "Meet Polina",
+      "paragraph1": "Welcome to my practice. My yoga journey began over a decade ago, and since then, I've dedicated myself to creating spaces where students feel safe to explore, challenge themselves, and grow.",
+      "paragraph2": "I believe that yoga is not one-size-fits-all. Each body is unique, each day brings different energy, and every practice should honor where you are in the moment. Whether you're seeking flexibility, strength, stress relief, or simply a moment of peace, we'll craft a practice that serves you.",
+      "paragraph3": "My teaching style blends traditional yoga philosophy with modern movement science, always with a focus on breath, alignment, and mindful awareness.",
+      "certificationsTitle": "Certifications",
+      "cert1": "500-Hour Registered Yoga Teacher (RYT-500)",
+      "cert2": "Yin Yoga & Myofascial Release Certification",
+      "cert3": "Trauma-Informed Yoga Training"
+    },
+    "testimonials": {
+      "title": "What Students Say",
+      "quote1": "Polina's classes have completely transformed my practice. Her personalized approach helps me feel seen and supported.",
+      "author1": "Sarah M.",
+      "quote2": "I've tried many instructors, but Polina's attention to alignment and breathwork is unmatched.",
+      "author2": "James K.",
+      "quote3": "As a beginner, I was nervous, but Polina created such a welcoming space. I'm hooked!",
+      "author3": "Maria L."
+    },
+    "cta": {
+      "title": "Ready to Begin Your Journey?",
+      "subtitle": "Book your first session today and discover what your practice can become",
+      "button": "Book Your First Session"
     }
   },
   "booking": {
@@ -100,8 +120,33 @@
     },
     "success": {
       "title": "Booking Confirmed!",
-      "message": "Thank you for booking with Yoga with Polina. You'll receive a confirmation email shortly.",
-      "returnHome": "Return to Home"
+      "fixedMessage": "Your class has been booked successfully",
+      "customMessage": "We've received your custom time request",
+      "bookingDetails": "Booking Details",
+      "bookingDetailsDesc": "Reference this booking ID for any inquiries",
+      "classInformation": "Class Information",
+      "instructorLabel": "Instructor",
+      "requestedTime": "Requested Time",
+      "yourInformation": "Your Information",
+      "notes": "Notes",
+      "whatsNext": "What's Next?",
+      "fixedSteps": {
+        "confirmation": "You'll receive a confirmation email at",
+        "reminder": "We'll send you a reminder 24 hours before your class",
+        "arrival": "Please arrive 10 minutes early for your first class",
+        "mat": "Bring your own mat or let us know if you need one"
+      },
+      "customSteps": {
+        "received": "We've received your custom time request",
+        "review": "We'll review your request and get back to you within 24 hours at",
+        "patience": "Thank you for your patience while we check our availability"
+      },
+      "buttons": {
+        "goHome": "Go Home",
+        "bookAnother": "Book Another Class"
+      },
+      "loading": "Loading booking details...",
+      "minutes": "minutes"
     },
     "validation": {
       "required": "This field is required",
@@ -109,7 +154,15 @@
       "invalidPhone": "Please enter a valid phone number",
       "selectTimeSlot": "Please select a time slot",
       "selectDate": "Please select a date",
-      "selectTime": "Please enter a time"
+      "selectTime": "Please enter a time",
+      "nameMinLength": "Name must be at least 2 characters",
+      "invalidTimeFormat": "Invalid time format (HH:MM)"
+    },
+    "status": {
+      "pending": "Pending",
+      "confirmed": "Confirmed",
+      "cancelled": "Cancelled",
+      "completed": "Completed"
     }
   },
   "admin": {

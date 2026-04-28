@@ -20,7 +20,7 @@ function LoginForm() {
     setIsLoading(true);
 
     try {
-      const response = await fetch("/api/admin/login", {
+      const response = await fetch("/api/booking-portal/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -34,7 +34,7 @@ function LoginForm() {
 
       toast.success("Login successful!");
 
-      const from = searchParams.get("from") || "/admin";
+      const from = searchParams.get("from") || "/booking-portal";
       router.push(from);
       router.refresh();
     } catch (error) {

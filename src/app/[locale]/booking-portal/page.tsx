@@ -1,6 +1,6 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import { Calendar, Users, Clock, TrendingUp } from "lucide-react";
 
 async function getStats() {
@@ -98,19 +98,19 @@ export default async function AdminDashboard() {
           </CardDescription>
         </CardHeader>
         <CardContent className="flex flex-wrap gap-3">
-          <Link href="/admin/time-slots">
+          <Link href="/booking-portal/time-slots">
             <Button>
               <Calendar className="w-4 h-4 mr-2" />
               Create Time Slot
             </Button>
           </Link>
-          <Link href="/admin/bookings?status=pending">
+          <Link href="/booking-portal/bookings?status=pending">
             <Button variant="outline">
               <Users className="w-4 h-4 mr-2" />
               View Pending Bookings
             </Button>
           </Link>
-          <Link href="/admin/class-types">
+          <Link href="/booking-portal/class-types">
             <Button variant="outline">
               Manage Class Types
             </Button>
@@ -129,7 +129,7 @@ export default async function AdminDashboard() {
         <CardContent>
           <div className="text-sm text-muted-foreground">
             No recent bookings. Check the{" "}
-            <Link href="/admin/bookings" className="text-primary hover:underline">
+            <Link href="/booking-portal/bookings" className="text-primary hover:underline">
               Bookings page
             </Link>{" "}
             for all bookings.

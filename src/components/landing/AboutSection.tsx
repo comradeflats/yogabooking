@@ -1,6 +1,9 @@
 import Image from "next/image";
+import { getTranslations } from 'next-intl/server';
 
-export function AboutSection() {
+export async function AboutSection() {
+  const t = await getTranslations('landing.about');
+
   return (
     <section id="about" className="section-padding">
       <div className="container mx-auto px-4">
@@ -18,32 +21,26 @@ export function AboutSection() {
           {/* Content */}
           <div>
             <h2 className="text-4xl md:text-5xl font-display mb-6">
-              Meet Polina
+              {t('title')}
             </h2>
             <div className="space-y-4 text-muted-foreground text-lg">
               <p>
-                Welcome to my practice. My yoga journey began over a decade ago, and since then,
-                I&apos;ve dedicated myself to creating spaces where students feel safe to explore,
-                challenge themselves, and grow.
+                {t('paragraph1')}
               </p>
               <p>
-                I believe that yoga is not one-size-fits-all. Each body is unique, each day brings
-                different energy, and every practice should honor where you are in the moment.
-                Whether you&apos;re seeking flexibility, strength, stress relief, or simply a moment
-                of peace, we&apos;ll craft a practice that serves you.
+                {t('paragraph2')}
               </p>
               <p>
-                My teaching style blends traditional yoga philosophy with modern movement science,
-                always with a focus on breath, alignment, and mindful awareness.
+                {t('paragraph3')}
               </p>
             </div>
 
             <div className="mt-8 space-y-2">
-              <h3 className="font-semibold text-lg">Certifications</h3>
+              <h3 className="font-semibold text-lg">{t('certificationsTitle')}</h3>
               <ul className="space-y-1 text-muted-foreground">
-                <li>• 500-Hour Registered Yoga Teacher (RYT-500)</li>
-                <li>• Yin Yoga & Myofascial Release Certification</li>
-                <li>• Trauma-Informed Yoga Training</li>
+                <li>• {t('cert1')}</li>
+                <li>• {t('cert2')}</li>
+                <li>• {t('cert3')}</li>
               </ul>
             </div>
           </div>

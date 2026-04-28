@@ -5,6 +5,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { CheckCircle2, Calendar, Clock, User, Mail, Phone } from "lucide-react";
+import { getTranslations, getLocale } from 'next-intl/server';
+import { ru, enUS } from 'date-fns/locale';
 
 async function getBooking(id: string) {
   const response = await fetch(`${process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'}/api/bookings/${id}`, {
@@ -32,6 +34,11 @@ async function SuccessContent({ searchParams }: { searchParams: Promise<{ id?: s
     notFound();
   }
 
+  const t = await getTranslations('booking.success');
+  const tStatus = await getTranslations('booking.status');
+  const locale = await getLocale();
+  const dateLocale = locale === 'ru' ? ru : enUS;
+
   const isFixedBooking = booking.booking_type === "fixed";
   const statusColors = {
     pending: "bg-yellow-500",
@@ -47,35 +54,33 @@ async function SuccessContent({ searchParams }: { searchParams: Promise<{ id?: s
           <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-100 dark:bg-green-900/20 mb-4">
             <CheckCircle2 className="w-8 h-8 text-green-600 dark:text-green-400" />
           </div>
-          <h1 className="text-4xl font-bold mb-2">Booking Confirmed!</h1>
+          <h1 className="text-4xl font-bold mb-2">{t('title')}</h1>
           <p className="text-muted-foreground">
-            {isFixedBooking
-              ? "Your class has been booked successfully"
-              : "We've received your custom time request"}
+            {isFixedBooking ? t('fixedMessage') : t('customMessage')}
           </p>
         </div>
 
         <Card className="mb-6">
           <CardHeader>
             <div className="flex items-center justify-between">
-              <CardTitle>Booking Details</CardTitle>
+              <CardTitle>{t('bookingDetails')}</CardTitle>
               <Badge variant="outline">#{booking.id}</Badge>
             </div>
             <CardDescription>
-              Reference this booking ID for any inquiries
+              {t('bookingDetailsDesc')}
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
             {/* Status */}
             <div className="flex items-center gap-2">
               <div className={`w-2 h-2 rounded-full ${statusColors[booking.status as keyof typeof statusColors]}`} />
-              <span className="font-medium capitalize">{booking.status}</span>
+              <span className="font-medium capitalize">{tStatus(booking.status)}</span>
             </div>
 
             {/* Class Details or Custom Request */}
             {isFixedBooking && booking.time_slot ? (
               <div className="space-y-3 pt-4 border-t">
-                <h3 className="font-semibold text-lg">Class Information</h3>
+                <h3 className="font-semibold text-lg">{t('classInformation')}</h3>
 
                 {booking.time_slot.class_type && (
                   <div className="flex items-center gap-2">
@@ -96,7 +101,7 @@ async function SuccessContent({ searchParams }: { searchParams: Promise<{ id?: s
 
                 <div className="flex items-center gap-2 text-sm">
                   <Calendar className="w-4 h-4 text-muted-foreground" />
-                  <span>{new Date(booking.time_slot.date).toLocaleDateString('en-US', {
+                  <span>{new Date(booking.time_slot.date).toLocaleDateString(locale, {
                     weekday: 'long',
                     year: 'numeric',
                     month: 'long',
@@ -106,22 +111,22 @@ async function SuccessContent({ searchParams }: { searchParams: Promise<{ id?: s
 
                 <div className="flex items-center gap-2 text-sm">
                   <Clock className="w-4 h-4 text-muted-foreground" />
-                  <span>{booking.time_slot.start_time} ({booking.time_slot.duration_minutes} minutes)</span>
+                  <span>{booking.time_slot.start_time} ({booking.time_slot.duration_minutes} {t('minutes')})</span>
                 </div>
 
                 {booking.time_slot.instructor_name && (
                   <div className="flex items-center gap-2 text-sm">
                     <User className="w-4 h-4 text-muted-foreground" />
-                    <span>Instructor: {booking.time_slot.instructor_name}</span>
+                    <span>{t('instructorLabel')}: {booking.time_slot.instructor_name}</span>
                   </div>
                 )}
               </div>
             ) : (
               <div className="space-y-3 pt-4 border-t">
-                <h3 className="font-semibold text-lg">Requested Time</h3>
+                <h3 className="font-semibold text-lg">{t('requestedTime')}</h3>
                 <div className="flex items-center gap-2 text-sm">
                   <Calendar className="w-4 h-4 text-muted-foreground" />
-                  <span>{new Date(booking.requested_date).toLocaleDateString('en-US', {
+                  <span>{new Date(booking.requested_date).toLocaleDateString(locale, {
                     weekday: 'long',
                     year: 'numeric',
                     month: 'long',
@@ -137,7 +142,7 @@ async function SuccessContent({ searchParams }: { searchParams: Promise<{ id?: s
 
             {/* Contact Info */}
             <div className="space-y-3 pt-4 border-t">
-              <h3 className="font-semibold">Your Information</h3>
+              <h3 className="font-semibold">{t('yourInformation')}</h3>
               <div className="flex items-center gap-2 text-sm">
                 <User className="w-4 h-4 text-muted-foreground" />
                 <span>{booking.name}</span>
@@ -156,7 +161,7 @@ async function SuccessContent({ searchParams }: { searchParams: Promise<{ id?: s
 
             {booking.notes && (
               <div className="space-y-2 pt-4 border-t">
-                <h3 className="font-semibold">Notes</h3>
+                <h3 className="font-semibold">{t('notes')}</h3>
                 <p className="text-sm text-muted-foreground">{booking.notes}</p>
               </div>
             )}
@@ -165,34 +170,34 @@ async function SuccessContent({ searchParams }: { searchParams: Promise<{ id?: s
 
         <Card className="mb-6">
           <CardHeader>
-            <CardTitle>What&apos;s Next?</CardTitle>
+            <CardTitle>{t('whatsNext')}</CardTitle>
           </CardHeader>
           <CardContent className="space-y-3">
             {isFixedBooking ? (
               <>
                 <p className="text-sm">
-                  ✅ You&apos;ll receive a confirmation email at <strong>{booking.email}</strong>
+                  ✅ {t('fixedSteps.confirmation')} <strong>{booking.email}</strong>
                 </p>
                 <p className="text-sm">
-                  📧 We&apos;ll send you a reminder 24 hours before your class
+                  📧 {t('fixedSteps.reminder')}
                 </p>
                 <p className="text-sm">
-                  🧘‍♀️ Please arrive 10 minutes early for your first class
+                  🧘‍♀️ {t('fixedSteps.arrival')}
                 </p>
                 <p className="text-sm">
-                  💼 Bring your own mat or let us know if you need one
+                  💼 {t('fixedSteps.mat')}
                 </p>
               </>
             ) : (
               <>
                 <p className="text-sm">
-                  ✅ We&apos;ve received your custom time request
+                  ✅ {t('customSteps.received')}
                 </p>
                 <p className="text-sm">
-                  📧 We&apos;ll review your request and get back to you within 24 hours at <strong>{booking.email}</strong>
+                  📧 {t('customSteps.review')} <strong>{booking.email}</strong>
                 </p>
                 <p className="text-sm">
-                  🙏 Thank you for your patience while we check our availability
+                  🙏 {t('customSteps.patience')}
                 </p>
               </>
             )}
@@ -201,10 +206,10 @@ async function SuccessContent({ searchParams }: { searchParams: Promise<{ id?: s
 
         <div className="flex gap-4 justify-center">
           <Link href="/">
-            <Button variant="outline">Go Home</Button>
+            <Button variant="outline">{t('buttons.goHome')}</Button>
           </Link>
           <Link href="/book">
-            <Button>Book Another Class</Button>
+            <Button>{t('buttons.bookAnother')}</Button>
           </Link>
         </div>
       </div>
@@ -212,13 +217,15 @@ async function SuccessContent({ searchParams }: { searchParams: Promise<{ id?: s
   );
 }
 
-export default function SuccessPage({ searchParams }: { searchParams: Promise<{ id?: string }> }) {
+export default async function SuccessPage({ searchParams }: { searchParams: Promise<{ id?: string }> }) {
+  const tLoading = await getTranslations('booking.success');
+
   return (
     <Suspense fallback={
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto mb-4"></div>
-          <p className="text-muted-foreground">Loading booking details...</p>
+          <p className="text-muted-foreground">{tLoading('loading')}</p>
         </div>
       </div>
     }>

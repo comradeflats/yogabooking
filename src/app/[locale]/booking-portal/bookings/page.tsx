@@ -51,8 +51,8 @@ export default function BookingsPage() {
     setLoading(true);
     try {
       const url = statusFilter === "all"
-        ? "/api/admin/bookings"
-        : `/api/admin/bookings?status=${statusFilter}`;
+        ? "/api/booking-portal/bookings"
+        : `/api/booking-portal/bookings?status=${statusFilter}`;
 
       const response = await fetch(url);
       const data = await response.json();
@@ -67,7 +67,7 @@ export default function BookingsPage() {
 
   const updateStatus = async (bookingId: number, newStatus: string) => {
     try {
-      const response = await fetch(`/api/admin/bookings/${bookingId}`, {
+      const response = await fetch(`/api/booking-portal/bookings/${bookingId}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",

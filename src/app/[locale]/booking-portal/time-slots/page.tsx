@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { toast } from "sonner";
 import { format } from "date-fns";
-import { Plus } from "lucide-react";
+import { Plus, Trash2 } from "lucide-react";
 
 interface TimeSlot {
   id: number;
@@ -35,7 +35,7 @@ export default function TimeSlotsPage() {
   const fetchTimeSlots = async () => {
     setLoading(true);
     try {
-      const response = await fetch("/api/admin/time-slots");
+      const response = await fetch("/api/booking-portal/time-slots");
       const data = await response.json();
       setTimeSlots(data);
     } catch (error) {
@@ -43,6 +43,30 @@ export default function TimeSlotsPage() {
       toast.error("Failed to fetch time slots");
     } finally {
       setLoading(false);
+    }
+  };
+
+  const handleDelete = async (id: number, slotInfo: string) => {
+    if (!confirm(`Are you sure you want to delete this time slot?\n\n${slotInfo}\n\nThis action cannot be undone.`)) {
+      return;
+    }
+
+    try {
+      const response = await fetch(`/api/booking-portal/time-slots/${id}`, {
+        method: "DELETE",
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({ error: "Unknown error" }));
+        console.error("Delete failed:", response.status, errorData);
+        throw new Error(errorData.error || "Failed to delete time slot");
+      }
+
+      toast.success("Time slot deleted successfully");
+      fetchTimeSlots(); // Refresh the list
+    } catch (error) {
+      console.error("Error deleting time slot:", error);
+      toast.error(error instanceof Error ? error.message : "Failed to delete time slot");
     }
   };
 
@@ -89,7 +113,7 @@ export default function TimeSlotsPage() {
                   }}
                 >
                   <div className="flex items-start justify-between">
-                    <div className="space-y-2">
+                    <div className="space-y-2 flex-1">
                       <div className="flex items-center gap-2">
                         {slot.class_type && (
                           <Badge
@@ -119,10 +143,23 @@ export default function TimeSlotsPage() {
                       </div>
                     </div>
 
-                    <div className="text-right">
+                    <div className="flex items-start gap-2">
                       <Badge variant="outline">
                         {slot.current_bookings} / {slot.max_bookings} booked
                       </Badge>
+                      <Button
+                        variant="ghost"
+                        size="icon"
+                        className="h-8 w-8 text-muted-foreground hover:text-destructive"
+                        onClick={() =>
+                          handleDelete(
+                            slot.id,
+                            `${format(new Date(slot.date), "PPP")} at ${slot.start_time}`
+                          )
+                        }
+                      >
+                        <Trash2 className="h-4 w-4" />
+                      </Button>
                     </div>
                   </div>
                 </div>

@@ -15,9 +15,9 @@ export default function proxy(request: NextRequest) {
   const pathWithoutLocale = locale ? pathname.replace(`/${locale}`, '') : pathname;
 
   // Check if the request is for admin routes (with or without locale prefix)
-  if (pathWithoutLocale.startsWith("/admin")) {
+  if (pathWithoutLocale.startsWith("/booking-portal")) {
     // Skip authentication for login page
-    if (pathWithoutLocale === "/admin/login") {
+    if (pathWithoutLocale === "/booking-portal/login") {
       return intlMiddleware(request);
     }
 
@@ -26,7 +26,7 @@ export default function proxy(request: NextRequest) {
 
     if (!adminSession) {
       // Redirect to login page with locale
-      const loginUrl = new URL(`${locale ? `/${locale}` : ''}/admin/login`, request.url);
+      const loginUrl = new URL(`${locale ? `/${locale}` : ''}/booking-portal/login`, request.url);
       loginUrl.searchParams.set("from", pathWithoutLocale);
       return NextResponse.redirect(loginUrl);
     }

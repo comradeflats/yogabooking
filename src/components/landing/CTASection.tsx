@@ -1,15 +1,18 @@
-import Link from "next/link";
+import { Link } from '@/i18n/routing';
 import { Button } from "@/components/ui/button";
+import { getTranslations } from 'next-intl/server';
 
-export function CTASection() {
+export async function CTASection() {
+  const t = await getTranslations('landing.cta');
+
   return (
     <section className="section-padding bg-primary text-primary-foreground">
       <div className="container mx-auto px-4 text-center">
         <h2 className="text-4xl md:text-5xl font-display mb-6">
-          Ready to Begin Your Journey?
+          {t('title')}
         </h2>
         <p className="text-xl mb-8 max-w-2xl mx-auto opacity-95">
-          Book your first session today and discover what your practice can become
+          {t('subtitle')}
         </p>
         <Link href="/book">
           <Button
@@ -17,7 +20,7 @@ export function CTASection() {
             variant="secondary"
             className="bg-white text-primary hover:bg-white/90 text-lg px-8 py-6 h-auto"
           >
-            Book Your First Session
+            {t('button')}
           </Button>
         </Link>
       </div>

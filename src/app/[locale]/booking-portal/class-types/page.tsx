@@ -40,7 +40,7 @@ export default function ClassTypesPage() {
   const fetchClassTypes = async () => {
     setLoading(true);
     try {
-      const response = await fetch("/api/admin/class-types");
+      const response = await fetch("/api/booking-portal/class-types");
       const data = await response.json();
       setClassTypes(data);
     } catch (error) {
@@ -56,8 +56,8 @@ export default function ClassTypesPage() {
 
     try {
       const url = editingId
-        ? `/api/admin/class-types/${editingId}`
-        : "/api/admin/class-types";
+        ? `/api/booking-portal/class-types/${editingId}`
+        : "/api/booking-portal/class-types";
 
       const response = await fetch(url, {
         method: editingId ? "PATCH" : "POST",
@@ -100,7 +100,7 @@ export default function ClassTypesPage() {
 
   const toggleActive = async (id: number, currentStatus: boolean) => {
     try {
-      const response = await fetch(`/api/admin/class-types/${id}`, {
+      const response = await fetch(`/api/booking-portal/class-types/${id}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
